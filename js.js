@@ -94,7 +94,7 @@ function updateCharacters(yearsPassed) {
         }
 
         humansList[i].image = imageSrc;
-
+        findPercentPopulation()
 
     }
 

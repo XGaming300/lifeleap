@@ -8,40 +8,54 @@ const port = 6969;
 app.use(express.json());
 console.log('Server started at http://localhost:6969');
 
-// === GLOBAL ===
-let currentTotalPopulation = 100;
-let food;
-let water;
-let temp;
 let chanceOfSurvival;
 let addChildren;
+let currentTotalPopulation = 100;
 let totalDead = 0;
 let totalBorn = 0;
+let dead = 0;
+let num1 = 0;
+let popualtion = 0;
+function start(totalPoulation, food, water, temp) {
+
+
+    currentTotalPopulation = totalPoulation;
+}
+
+
 
 async function yearsAdded(num, totalPopulation) {
     currentTotalPopulation = totalPopulation;
+    console.log(currentTotalPopulation)
     for (let i = 0; i < num; i++) {
-        totalBorn += 500;
-        totalDead += 100;
-        currentTotalPopulation -= 50;
+        let Dead = Math.random() * ((totalPopulation / 100) * 6.9)
+        population = totalPopulation - Dead
     }
 
-}
+
+    num1 = (population*Math.sqrt((Math.random) * 40))
+    totalBorn = popualtion - num1
+    totalDead += totalDead
+    currentTotalPopulation = popualtion
+    }
+
+
+
 
 app.post("/start", async (req, res) => {
-    chanceOfSurvival = req.body.totalPoulation
-    food = req.body.food
-    water = req.body.water
-    temp = req.body.temp
+    let totalPoulation = req.body.totalPoulation
+    let food = req.body.food
+    let water = req.body.water
+    let temp = req.body.temp
+    console.log("START")
 
+    start(totalPoulation, food, water, temp)
     res.json({ data: "YEPPIEE" })
 })
 
 app.post("/addYears", async (req, res) => {
     let numberOfYears = req.body.numberOfYears
     let totalPopulation = req.body.totalPopulation
-
-    currentTotalPopulation = totalPopulation;
 
     await yearsAdded(numberOfYears, totalPopulation)
     res.json({ totalPopulation: currentTotalPopulation.toString(), totalBorn: totalBorn.toString(), totalDead: totalDead.toString() })

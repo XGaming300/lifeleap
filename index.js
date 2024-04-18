@@ -8,135 +8,64 @@ app.use(express.json());
 console.log('Server started at http://localhost:6969');
 
 app.post("/addYears", async (req, res) => {
-    let numberOfYears = req.body.numberOfYears
-    let location = 1
+    let years = req.body.numberOfYears
+    let totalPopulation = req.body.totalPopulation
+    let food = req.body.food
+    let water = req.body.water
+    let temp = req.body.temp
+    let location = req.body.location
+    let child = 0
+    let adult = 0
+    let childRate = 0
+    let old = 0
+    let sum = 0
+    let population = 0;
+    let mortality = 0; 
     var timeseries = require("timeseries-analysis");
     let year = 2
     let countries = [
         {
             name: "Canada",
-            population: 3878191
         },
         {
             name: "China",
-            population: 1412000000
         },
         {
             name: "Saudi Arabia",
-            population: 36947025
         }
     ]
 
-    function GenSurviv(water, food, temp, location, surviv, years) {
+
+
+
+    function Surviv(water, food, temp, location) {
         let decrease = 0
-        if (age > 18) {
-            for (let i = 0; i <= years; i++) {
-                surviv = ((Math.random() * (100 - decrease) - food - water - temp))
-                surviv = Math.round(surviv)
-                decrease += 1
+
+        for (let i = 0; i <= years; i++) {
+            if (location = 1) {
+                let mortalityCa = Math.random() * ((totalPopulation / 100) * 6.9)
+                population = totalPopulation - mortality 
             }
-        }
-        return surviv
-    }
-    function ChildSurviv(water, food, temp, location, Csurviv, years) {
-        let mortalityCa = ((114.4 / 98) * 4.9)
-        //   console.log(mortalityCa)
-        let mortalityCh = ((114.4 / 98) * 6.6)
-        //  console.log(mortalityCh)
-        let mortalitySa = ((114.4 / 98) * 6.4)
-        //  console.log(mortalitySa)
-        let decrease = 0
-        if (age < 18) {
-            for (let i = 0; i <= years; i++) {
-                if (location = 1) {
-                    Csurviv = (Math.random() * ((100 - decrease) - food - water - temp - mortalityCa))
-                    Csurviv = Math.round(Csurviv)
-                }
-                if (location = 2) {
-                    Csurviv = (Math.random() * ((100 - decrease) - food - water - temp - mortalityCh))
-                    Csurviv = Math.round(Csurviv)
-                }
-                if (location = 3) {
-                    Csurviv = (Math.random() * ((100 - decrease) - food - water - temp - mortalitySa))
-                    Csurviv = Math.round(Csurviv)
-                }
-                decrease += 1
+            if (location = 2) {
+                let mortalityCh = Math.random() * ((totalPopulation / 100) * 8.6)
+                population = totalPopulation - mortality
+
             }
+            if (location = 3) {
+                let mortalitySa = Math.random() * ((totalPopulation / 100) * 8.4)
+                population = totalPopulation - mortality
+
+            }
+            decrease += 1
         }
+
+
         return Csurviv
     }
 
-    function oldSurvive(water, food, temp, location, Osurviv, years) {
-        let decrease = 0
-        for (let i = 0; i <= years; i++) {
-            Osurvivsurviv = ((Math.random() * (100 - decrease) - food - water - temp)) - 10
-            Osurviv = Math.round(surviv)
-            console.log(surviv)
-            decrease += 1
-        }
-        return Osurviv
-    }
+    for (let i = 0; i <= year; i++) {
 
 
-
-
-
-
-
-    function start(location, population, water, food, temp, years) {
-
-        if (food = 1) {
-            food = 13.5
-        }
-        if (food = 2) {
-            food = 6.75
-        }
-        if (food = 3) {
-            food = 1.35
-        }
-        if (water = 1) {
-            water = 0.5
-        }
-        if (water = 2) {
-            water = 2.5
-        }
-        if (water = 3) {
-            water = 5
-        }
-        GenSurviv(water, food, temp)
-        ChildSurviv(water, food, temp)
-        populationGrowth()
-    }
-
-
-
-
-
-    function populationGrowth(child, adult, old, age, total, childRate, population) {
-        for (let i = 0; i <= year; i++) {
-            if (location = 1) {
-                childRate = (2 * Math.sin(i)) + 18
-            }
-            if (location = 2) {
-                childRate = (2 * Math.sin(i)) + 20
-            }
-            if (location = 3) {
-                childRate = (2 * Math.sin(i)) + 30
-            }
-            child = (population / 100) * childRate
-
-            if (location = 1) {
-                oldRate = (2 * Math.sin(i)) + 19
-            }
-            if (location = 2) {
-                oldRate = (2 * Math.sin(i)) + 13
-            }
-            if (location = 3) {
-                oldRate = (2 * Math.sin(i)) + 2
-            }
-            old = (population / 100) * oldRate
-            adult = population - old - child
-        }
         var dataCa = [
             [2000, 30683313],
             [2001, 31002763],
@@ -175,6 +104,8 @@ app.post("/addYears", async (req, res) => {
             for (var i = 0; i < coeffs.length; i++) {
                 forecast -= t.dataCa[22 - i][1] * coeffs[i];
             }
+             sum = totalPopulation - forecast
+             population = population + forecast
         }
         console.log("forecast", forecast);
         var dataCh = [
@@ -216,6 +147,8 @@ app.post("/addYears", async (req, res) => {
             for (var i = 0; i < coeffs.length; i++) {
                 forecast -= t.dataCh[22 - i][1] * coeffs[i];
             }
+            sum = totalPopulation - forecast
+            population = population+ forecast
         }
 
         var dataSa = [
@@ -256,18 +189,41 @@ app.post("/addYears", async (req, res) => {
             for (var i = 0; i < coeffs.length; i++) {
                 forecast -= t.dataSa[23 - i][1] * coeffs[i];
             }
+            sum = totalPopulation - forecast
+            population = population+ forecast
         }
+
     }
 
 
 
 
 
-    // displayData(listOfHumans, stats)
-    // {
+    function start() {
 
+        if (food = 1) {
+            food = 13.5
+        }
+        if (food = 2) {
+            food = 6.75
+        }
+        if (food = 3) {
+            food = 1.35
+        }
+        if (water = 1) {
+            water = 0.5
+        }
+        if (water = 2) {
+            water = 2.5
+        }
+        if (water = 3) {
+            water = 5
+        }
+        GenSurviv(water, food, temp)
+        ChildSurviv(water, food, temp)
+        populationGrowth()
+    }
 
-    // }
 
 
 
@@ -279,17 +235,11 @@ app.post("/addYears", async (req, res) => {
     // }
 
 
-    app.post("/addYears", async (req, res) => {
-        let mainText = req.body.text;
-        let final = await processText(mainText) //obj
+        
+    res.json({ totalPopulation: population, totalBorn: Forecast, totalDead: mortality})
 
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify({
-            result: final
-        }));
-    })
+    
 
-    res.json({ totalPopulation: 131313, totalDead: 131313, totalBorn: 8123 })
 })
 
 app.post("/start", async (req, res) => {
@@ -297,10 +247,9 @@ app.post("/start", async (req, res) => {
     let food = req.body.food
     let water = req.body.water
     let temp = req.body.temp
-    console.log("hello")
 
 
-    //  start(1234, 1, 2, 3)
+    start(totalPopulation, food, water, temp)
 
 
     res.json({ data: "YEPPIEE" })

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeLeap</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <div class="startPage" id="startPage">
+        <h1>LifeLeap</h1>
+        
+        <div class="initStats">
+            <h2>Statistics</h2>
+
+            <div class="inputHolders">
+                <div class="optionsSelections">
+                    <h3>Location:</h3>
+                    <div class="options">
+                        <h4 id="canada">Canada</h4>
+                        <h4 id="china">China</h4>
+                        <h4 id="sa">Saudi Arabia</h4>
+                    </div>
+                </div>
+
+                <div class="optionsSelections">
+                    <h3>Population:</h3>
+                    <div class="options">
+                        <h4 id="populationNum">13313</h4>
+                        <h4><i>OR</i></h4>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="optionsSelections">
+                    <h3>Food:</h3>
+                    <div class="options">
+                        <h4 id="foodLow">Low</h4>
+                        <h4 id="foodMid">Medium</h4>
+                        <h4 id="foodHigh">High</h4>
+                    </div>
+                </div>
+
+                <div class="optionsSelections">
+                    <h3>Water:</h3>
+                    <div class="options">
+                        <h4 id="waterLow">Low</h4>
+                        <h4 id="waterMid">Medium</h4>
+                        <h4 id="waterHigh">High</h4>
+                    </div>
+                </div>
+
+                <div class="optionsSelections">
+                    <h3>Temperature:</h3>
+                    <div class="options">
+                        <h4 id="tempLow">Low</h4>
+                        <h4 id="tempMid">Medium</h4>
+                        <h4 id="tempHigh">High</h4>
+                    </div>
+                </div>
+            </div>
+    
+            <button id="startButton">START</button>
+        </div>
+    </div>
+
+    <div class="mainPage hide" id="mainPage">
+
+        <div class="leftSide">
+            <div class="mainInfo"> 
+                <h2>GENERATION 1</h2>
+                <div class="line"></div>
+                <div class="peopleHolder" id="box1">
+                    <div class="human">
+                        <img src="https://media.istockphoto.com/id/1297832726/photo/portrait-of-a-smiling-young-businessman.jpg?s=612x612&w=0&k=20&c=32Qg7TnqfGkrDwTL3q0X0Kx9ab3JDzuqxzp4poH39zc=" alt="">
+                        <div class="humanInfo">
+                            <h3>Male</h3>
+                            <h3>24</h3>
+                        </div>
+                    </div>
+
+                </div>
+       
+
+            </div>
+            
+
+        </div>
+
+        <div class="rightSide">
+            <div class="title">
+                <h1>LifeLeap</h1>
+                <h2>YEAR: 1</h2>
+            </div>
+
+            <div class="mainStats">
+                <h2>Statistics</h2>
+                
+                <div class="line"></div>
+
+
+                <div class="popHolder">
+                    <h3>Total Population</h3>
+                    <h4>123,321,421</h4>
+                </div>
+
+                <div class="maleFemale">
+                    <div class="genderBox">
+                        <h3>Male</h3>
+                        <h4>55%</h4>
+                    </div>
+                    <div class="genderBox">
+                        <h3>Female</h3>
+                        <h4>45%</h4>
+                    </div>
+                </div>
+
+                <div class="generalStats">
+                    <h3>Total Born: 4213</h3>
+                    <h3>Total Dead: 7632</h3>
+                </div>
+            </div>
+
+            <div class="addYears">
+                <h2>Add Years</h2>
+                
+                <div class="addButtons">
+                    <button>1</button>
+                    <button>5</button>
+                    <button>10</button>
+                    <button>50</button>
+                    <button>100</button>
+                    <button>1000</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script src="js.js"></script>
+</body>
+</html>

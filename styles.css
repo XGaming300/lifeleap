@@ -33,14 +33,14 @@ body {
 
 .startPage .initStats {
     position: fixed;
-    top: 20%;
-    left: 50%;
+    top: 100px;
+    right: 100px;
     background-color: var(--color4);
     padding: 20px;
     padding-top: 40px;
     padding-bottom: 40px;
     border-radius: 25px;
-    width: 40%;
+    width: 700px;
     /* height: 60%; */
     display: flex;
     flex-direction: column;
@@ -106,7 +106,7 @@ body {
     width: 45%;
     height: 30px;
     border: 3px solid var(--color2);
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: var(--color2);
     color: var(--color4);
     text-transform: uppercase;
@@ -146,7 +146,7 @@ body {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
-    margin-left: -60px;
+    margin-left: -20px;
 }
 
 .title {
@@ -160,7 +160,8 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     border-radius: 25px;
-    height: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .title h1 {
@@ -178,7 +179,7 @@ body {
 
 .title h2 {
     margin-right: 20px;
-    font-size: 30px;
+    font-size: 25px;
     color: var(--color1);
 }
 
@@ -188,7 +189,7 @@ body {
 }
 
 .mainInfo h2 {
-    font-size: 50px;
+    font-size: 45px;
 }
 
 .peopleHolder {
@@ -206,11 +207,16 @@ body {
     margin: 5px;
     background-color: var(--color4);
     color: var(--color1);
+    font-family: "Quicksand", sans-serif;
+    height: 80px;
 }
 
 .human img {
     width: 100%;
+    height: 60%;
     border-radius: 12px 12px 0 0;
+    object-fit: cover;
+    object-position: top;
 }
 
 .humanInfo {
@@ -221,6 +227,7 @@ body {
     padding-right: 10px;
     margin-bottom: 5px;
     margin-top: 5px;
+    font-size: 12px;
 }
 
 .line {
@@ -257,12 +264,12 @@ body {
 }
 
 .mainStats h3 {
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 30px;
 }
 
 .mainStats h4 {
-    font-size: 60px;
+    font-size: 50px;
     margin-bottom: 30px;
     margin-top: -20px;
 }
@@ -296,6 +303,7 @@ body {
 
 .generalStats h3 {
     font-size: 20px;
+    text-align: center;
 }
 
 .addYears {
@@ -308,12 +316,12 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     border-radius: 25px;
-    height: 300px;
+    /* height: 300px; */
     align-items: center;
 }
 
 .addYears h2 {
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -324,22 +332,25 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
 
 .addYears button {
-    width: 45%;
+    width: 30%;
     margin-left: 2.5px;
     margin-right: 2.5px;
-    height: 50px;
+    height: 40px;
     background-color: var(--color2);
     color: var(--color5);
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 400;
     border: 3px solid var(--color1);
     border-radius: 15px;
     margin-top: 10px;
     font-family: "Quicksand", sans-serif;
-
 }
 
+.underLine {
+    text-decoration: underline;
+}

@@ -16,7 +16,7 @@
 
     <div class="startPage" id="startPage">
         <h1>LifeLeap</h1>
-        
+
         <div class="initStats">
             <h2>Statistics</h2>
 
@@ -24,18 +24,18 @@
                 <div class="optionsSelections">
                     <h3>Location:</h3>
                     <div class="options">
-                        <h4 id="canada">Canada</h4>
-                        <h4 id="china">China</h4>
-                        <h4 id="sa">Saudi Arabia</h4>
+                        <h4 id="canada" class="underLine">Canada</h4>
+                        <h4 id="china" class="">China</h4>
+                        <h4 id="sa" class="">Saudi Arabia</h4>
                     </div>
                 </div>
 
                 <div class="optionsSelections">
                     <h3>Population:</h3>
                     <div class="options">
-                        <h4 id="populationNum">13313</h4>
+                        <h4 id="populationNum" class="underLine">13313</h4>
                         <h4><i>OR</i></h4>
-                        <input type="text">
+                        <input type="text" id="customPopulation">
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
                     <h3>Food:</h3>
                     <div class="options">
                         <h4 id="foodLow">Low</h4>
-                        <h4 id="foodMid">Medium</h4>
+                        <h4 id="foodMid" class="underLine">Medium</h4>
                         <h4 id="foodHigh">High</h4>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                     <h3>Water:</h3>
                     <div class="options">
                         <h4 id="waterLow">Low</h4>
-                        <h4 id="waterMid">Medium</h4>
+                        <h4 id="waterMid" class="underLine">Medium</h4>
                         <h4 id="waterHigh">High</h4>
                     </div>
                 </div>
@@ -61,12 +61,12 @@
                     <h3>Temperature:</h3>
                     <div class="options">
                         <h4 id="tempLow">Low</h4>
-                        <h4 id="tempMid">Medium</h4>
+                        <h4 id="tempMid" class="underLine">Medium</h4>
                         <h4 id="tempHigh">High</h4>
                     </div>
                 </div>
             </div>
-    
+
             <button id="startButton">START</button>
         </div>
     </div>
@@ -74,70 +74,65 @@
     <div class="mainPage hide" id="mainPage">
 
         <div class="leftSide">
-            <div class="mainInfo"> 
-                <h2>GENERATION 1</h2>
+            <div class="mainInfo">
+                <h2>POPULATION</h2>
                 <div class="line"></div>
                 <div class="peopleHolder" id="box1">
-                    <div class="human">
+                    <!-- <div class="human">
                         <img src="https://media.istockphoto.com/id/1297832726/photo/portrait-of-a-smiling-young-businessman.jpg?s=612x612&w=0&k=20&c=32Qg7TnqfGkrDwTL3q0X0Kx9ab3JDzuqxzp4poH39zc=" alt="">
                         <div class="humanInfo">
                             <h3>Male</h3>
                             <h3>24</h3>
                         </div>
-                    </div>
-
+                    </div> -->
                 </div>
-       
-
             </div>
-            
-
         </div>
 
         <div class="rightSide">
             <div class="title">
                 <h1>LifeLeap</h1>
-                <h2>YEAR: 1</h2>
+                <h2 id="yearCounter">YEAR: 1</h2>
             </div>
 
             <div class="mainStats">
                 <h2>Statistics</h2>
-                
+
                 <div class="line"></div>
 
 
                 <div class="popHolder">
                     <h3>Total Population</h3>
-                    <h4>123,321,421</h4>
+                    <h4 id="totalPopulationCounter">123,321,421</h4>
                 </div>
 
                 <div class="maleFemale">
                     <div class="genderBox">
                         <h3>Male</h3>
-                        <h4>55%</h4>
+                        <h4 id="malePer">55%</h4>
                     </div>
                     <div class="genderBox">
                         <h3>Female</h3>
-                        <h4>45%</h4>
+                        <h4 id="femalePer">45%</h4>
                     </div>
                 </div>
 
                 <div class="generalStats">
-                    <h3>Total Born: 4213</h3>
-                    <h3>Total Dead: 7632</h3>
+                    <h3 id="bornCount">Total Born: 0</h3>
+                    <h3 id="deadCount">Total Dead: 0</h3>
                 </div>
             </div>
 
             <div class="addYears">
                 <h2>Add Years</h2>
-                
+
                 <div class="addButtons">
-                    <button>1</button>
-                    <button>5</button>
-                    <button>10</button>
-                    <button>50</button>
-                    <button>100</button>
-                    <button>1000</button>
+                    <button id="btn1">1</button>
+                    <button id="btn2">5</button>
+                    <button id="btn3">10</button>
+                    <button id="btn4">25</button>
+                    <button id="btn5">50</button>
+                    <button id="btn6">75</button>
                 </div>
             </div>
 

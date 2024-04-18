@@ -1,4 +1,16 @@
+//SERVER
+const express = require('express')
+const cors = require('cors');
 
+const app = express()
+app.use(cors())
+const port = 6969;
+app.use(express.json());
+console.log('Server started at http://localhost:6969');
+
+
+
+let age = 0;
 let countries = [
     {
         name: "Canada",
@@ -13,14 +25,15 @@ let countries = [
         population: 36947025
     }
 ]
-let years = 50
 
-function GenSurviv(water, food, temp, location, surviv) {
+function GenSurviv(water, food, temp, location, surviv, years) {
     let decrease = 0
-    for (let i = 0; i <= years; i++) {
-        surviv = ((Math.random() * (100 - decrease) - food - water - temp))
-        surviv = Math.round(surviv)
-        decrease += 1
+    if (age > 18) {
+        for (let i = 0; i <= years; i++) {
+            surviv = ((Math.random() * (100 - decrease) - food - water - temp))
+            surviv = Math.round(surviv)
+            decrease += 1
+        }
     }
     return surviv
 }
@@ -32,20 +45,22 @@ function ChildSurviv(water, food, temp, location, Csurviv) {
     let mortalitySa = ((114.4 / 98) * 6.4)
     //  console.log(mortalitySa)
     let decrease = 0
-    for (let i = 0; i <= years; i++) {
-        if (location = 1) {
-            Csurviv = (Math.random() * ((100 - decrease) - food - water - temp - mortalityCa))
-            Csurviv = Math.round(Csurviv)
+    if (age < 18) {
+        for (let i = 0; i <= years; i++) {
+            if (location = 1) {
+                Csurviv = (Math.random() * ((100 - decrease) - food - water - temp - mortalityCa))
+                Csurviv = Math.round(Csurviv)
+            }
+            if (location = 2) {
+                Csurviv = (Math.random() * ((100 - decrease) - food - water - temp - mortalityCh))
+                Csurviv = Math.round(Csurviv)
+            }
+            if (location = 3) {
+                Csurviv = (Math.random() * ((100 - decrease) - food - water - temp - mortalitySa))
+                Csurviv = Math.round(Csurviv)
+            }
+            decrease += 1
         }
-        if (location = 2) {
-            Csurviv = (Math.random() * ((100 - decrease) - food - water - temp - mortalityCh))
-            Csurviv = Math.round(Csurviv)
-        }
-        if (location = 3) {
-            Csurviv = (Math.random() * ((100 - decrease) - food - water - temp - mortalitySa))
-            Csurviv = Math.round(Csurviv)
-        }
-        decrease += 1
     }
     return Csurviv
 }
@@ -53,28 +68,14 @@ function ChildSurviv(water, food, temp, location, Csurviv) {
 function oldSurvive(water, food, temp, location, Osurviv) {
     let decrease = 0
     for (let i = 0; i <= years; i++) {
-        Osurvivsurviv = ((Math.random() * (100 - decrease) - food - water - temp ))-10
+        Osurvivsurviv = ((Math.random() * (100 - decrease) - food - water - temp)) - 10
         Osurviv = Math.round(surviv)
         console.log(surviv)
         decrease += 1
     }
     return Osurviv
 }
-function populationGrowth(birthRates){
-    const data = [
-        { y: 2, x: 1 },
-        { y: 4, x: 2 },
-        { y: 5, x: 3 },
-        { y: 4, x: 4 },
-        { y: 5, x: 5 },
-        
-    ]
-    // Takes the following arguments (dataset, xKey, yKey)
-const trend = createTrend(data, 'x', 'y');
 
-console.log(trend);
-// { slope: 0.6, yStart: 2.2, calcY: [Function: calcY] }
-}
 
 
 
@@ -101,20 +102,19 @@ function start(location, population, water, food, temp) {
     if (water = 3) {
         water = 5
     }
-GenSurviv(water, food, temp)
-ChildSurviv(water, food, temp)
-populationGrowth()
+    GenSurviv(water, food, temp)
+    ChildSurviv(water, food, temp)
+    populationGrowth()
 }
-start("Canada", 1234, 1, 2, 3)
 
 
 
-// function addYears(numberOfYears) {
-//     //This function will be called when button on website is pressed to add years
-//     //Use this function as a starting point for the logic
+function determinedAge(child, adult, old, age, total) {
+    let childRate =
+        child = (popultion / 100) * childRate
 
+}
 
-// }
 
 
 
@@ -134,5 +134,38 @@ start("Canada", 1234, 1, 2, 3)
 //     console.log(listOfHumans)
 //     console.log(stats)
 // }
+
+
+// app.post("/addYears", async (req, res) => {
+//     let mainText = req.body.text;
+//     let final = await processText(mainText) //obj
+
+//     res.setHeader('Content-Type', 'application/json');
+//     res.end(JSON.stringify({
+//         result: final
+//     }));
+// })
+
+
+app.post("/start", async (req, res) => {
+    let totalPoulation = req.body.totalPoulation
+    let food = req.body.food
+    let water = req.body.water
+    let temp = req.body.temp
+    console.log("hello")
+
+
+    start(1234, 1, 2, 3)
+
+
+    const response = {
+        method: `POST`,
+        body: temp
+    }.then(response => response.json())
+
+    res.end(response)
+})
+
+app.listen(port)
 
 
